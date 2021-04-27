@@ -18,6 +18,7 @@ namespace LambdaExpression
             //RetrieveTeenageRecords(list);
             //FindAvgAgeForAll(list);
             SearchPerson(list);
+            SkipLessThan60(list);
         }
         //UC1 Adding Details
         public static void AddingPerson(List<Person> personList)
@@ -95,6 +96,25 @@ namespace LambdaExpression
                 Console.WriteLine(ex.Message);
             }
         }
+
+        //UC6 skip less than 60
+        public static void SkipLessThan60(List<Person> list)
+        {
+            try
+            {
+                var result = list.FindAll(x => x.Age > 60);
+                foreach (Person person in result)
+                {
+
+                    Console.WriteLine("Age\t" + person.Age + "Name\t" + person.Name + "\t" + "Address\t" + person.Address);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
     }
 }
 
