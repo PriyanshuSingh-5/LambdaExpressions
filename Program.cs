@@ -14,9 +14,10 @@ namespace LambdaExpression
             List<Person> list = new List<Person>();
             IterateOverLoop(list);
             AddingPerson(list);
-            RetrieveTop2(list);
-            RetrieveTeenageRecords(list);
-            FindAvgAgeForAll(list);
+            //RetrieveTop2(list);
+            //RetrieveTeenageRecords(list);
+            //FindAvgAgeForAll(list);
+            SearchPerson(list);
         }
         //UC1 Adding Details
         public static void AddingPerson(List<Person> personList)
@@ -63,7 +64,7 @@ namespace LambdaExpression
                 Console.WriteLine(ex.Message);
             }
         }
-
+        //UC4 Avg of all age
         public static void FindAvgAgeForAll(List<Person> list)
         {
             try
@@ -72,6 +73,22 @@ namespace LambdaExpression
                
                     Console.WriteLine("Average age among all persons\t"+result);
                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        //UC5 Search person
+        public static void SearchPerson(List<Person> list)
+        {
+            try
+            {
+                var result = list.Where(x => x.Name == "Ajay");
+
+                Console.WriteLine("Average age among all persons\t" + result);
+
             }
             catch (Exception ex)
             {
