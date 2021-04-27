@@ -15,6 +15,7 @@ namespace LambdaExpression
             IterateOverLoop(list);
             AddingPerson(list);
             RetrieveTop2(list);
+            RetrieveTeenageRecords(list);
         }
         //UC1 Adding Details
         public static void AddingPerson(List<Person> personList)
@@ -45,7 +46,24 @@ namespace LambdaExpression
             }
         }
 
-
-
+        //UC3 Retrieve age between 13 to 18 or less 
+        public static void RetrieveTeenageRecords(List<Person> list)
+        {
+            try
+            {
+                var result = list.FindAll(x => x.Age < 13 && x.Age > 18);
+                foreach (Person person in result)
+                {
+                    Console.WriteLine("Age\t" + person.Age + "Name\t" + person.Name + "\t" + "Address\t" + person.Address);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }
+
+
+
