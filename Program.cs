@@ -14,6 +14,7 @@ namespace LambdaExpression
             List<Person> list = new List<Person>();
             IterateOverLoop(list);
             AddingPerson(list);
+            RetrieveTop2(list);
         }
         //UC1 Adding Details
         public static void AddingPerson(List<Person> personList)
@@ -33,6 +34,18 @@ namespace LambdaExpression
                 Console.WriteLine("Age\t" + person.Age + "Name\t" + person.Name + "\t" + "Address\t" + person.Address);
             }
         }
+
+        //UC2 Retrieve top two age less than 60
+        public static void RetrieveTop2(List<Person> list)
+        {
+            var result = list.FindAll(x => x.Age < 60).OrderBy(x => x.Age).Take(2);
+            foreach (Person person in result)
+            {
+                Console.WriteLine("Age\t" + person.Age + "Name\t" + person.Name + "\t" + "Address\t" + person.Address);
+            }
+        }
+
+
 
     }
 }
